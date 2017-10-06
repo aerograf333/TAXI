@@ -1,26 +1,893 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
+            <string>AvenirNext-DemiBold</string>
+            <string>AvenirNext-Medium</string>
+            <string>AvenirNext-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="BYZ-38-t0r" customClass="HomeVC" customModule="TAXI" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="e6S-dY-2le">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZoR-Zh-YnT" customClass="GradientView" customModule="TAXI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="115"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="115" id="JHo-CC-DCS"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLC-sA-pKk" customClass="RoundedShadowView" customModule="TAXI" customModuleProvider="target">
+                                <rect key="frame" x="20" y="87" width="374" height="85"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="My Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PKX-Jg-JuU">
+                                        <rect key="frame" x="62" y="0.0" width="304" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where are you going?" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Gk9-Xc-ZCo">
+                                        <rect key="frame" x="62" y="38" width="304" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6OL-6C-KMS">
+                                        <rect key="frame" x="23" y="34" width="343" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yUg-GJ-5O4" customClass="CircleView" customModule="TAXI" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="8" width="15" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UCb-5t-PGS" customClass="CircleView" customModule="TAXI" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="50" width="15" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="rbG-bz-Yig"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aW-LX-NQr">
+                                <rect key="frame" x="0.0" y="648" width="414" height="88"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IoO-Rj-s0q" customClass="RoundedShadowButton" customModule="TAXI" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="14" width="374" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="ooW-7v-q6L"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="25"/>
+                                        <state key="normal" title="RIDE REQUEST">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jXC-xB-DYg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="IoO-Rj-s0q" secondAttribute="trailing" constant="20" id="QId-Ou-9zO"/>
+                                    <constraint firstAttribute="height" constant="88" id="Yev-4Q-7ia"/>
+                                    <constraint firstItem="IoO-Rj-s0q" firstAttribute="leading" secondItem="3aW-LX-NQr" secondAttribute="leading" constant="20" id="i0S-SK-iTN"/>
+                                    <constraint firstItem="IoO-Rj-s0q" firstAttribute="top" secondItem="3aW-LX-NQr" secondAttribute="top" constant="14" id="oPu-H4-vfX"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulu-sE-DJp">
+                                <rect key="frame" x="332" y="578" width="62" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="TNE-wj-mMZ"/>
+                                    <constraint firstAttribute="width" constant="62" id="aHq-UT-BWW"/>
+                                </constraints>
+                                <state key="normal" image="button:Ulu-sE-DJp:image" backgroundImage="centerMapBtn"/>
+                                <connections>
+                                    <action selector="centerMapBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cOZ-rR-ZXl"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="a3b-Jv-O83">
+                                <rect key="frame" x="20" y="55" width="374" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqD-AD-CrM">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="50"/>
+                                        <state key="normal" image="menuSliderBtn"/>
+                                        <connections>
+                                            <action selector="menuBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EyB-qF-uyf"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6V-Hh-jQ8">
+                                        <rect key="frame" x="114.00000000000001" y="0.0" width="136.33333333333337" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUPER" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="81.333333333333329" translatesAutoresizingMaskIntoConstraints="NO" id="pgQ-Ra-NNH">
+                                                <rect key="frame" x="0.0" y="0.0" width="81.333333333333329" height="50"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <color key="textColor" red="1" green="0.084414909770000005" blue="0.1097138179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAXI" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xN-bO-3Vy">
+                                                <rect key="frame" x="81.333333333333343" y="0.0" width="55" height="50"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample-photo" translatesAutoresizingMaskIntoConstraints="NO" id="AaL-Lz-Vr6" customClass="RoundImageView" customModule="TAXI" customModuleProvider="target">
+                                        <rect key="frame" x="324" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="iud-5I-rZ6"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ghl-Kl-OjO"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="oIr-qY-ioK"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZoR-Zh-YnT" secondAttribute="trailing" id="0sR-rz-7af"/>
+                            <constraint firstItem="3aW-LX-NQr" firstAttribute="top" secondItem="Ulu-sE-DJp" secondAttribute="bottom" constant="8" id="CVW-Qg-in2"/>
+                            <constraint firstItem="zLC-sA-pKk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Ikj-Qu-Yok"/>
+                            <constraint firstItem="ZoR-Zh-YnT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="J6n-kL-rS2"/>
+                            <constraint firstItem="a3b-Jv-O83" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="35" id="K71-wu-16c"/>
+                            <constraint firstItem="ZoR-Zh-YnT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VTJ-kW-Uug"/>
+                            <constraint firstAttribute="trailing" secondItem="e6S-dY-2le" secondAttribute="trailing" id="WGb-t4-NAv"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e6S-dY-2le" secondAttribute="bottom" id="Wtk-DQ-6qK"/>
+                            <constraint firstItem="e6S-dY-2le" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XDs-J0-2Hd"/>
+                            <constraint firstItem="3aW-LX-NQr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cZS-WC-Mwf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3aW-LX-NQr" secondAttribute="bottom" id="dVA-ab-Xz0"/>
+                            <constraint firstItem="zLC-sA-pKk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ecJ-ws-CwE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a3b-Jv-O83" secondAttribute="trailing" id="gLo-w3-0lt"/>
+                            <constraint firstItem="a3b-Jv-O83" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="glS-s2-eF6"/>
+                            <constraint firstItem="Ulu-sE-DJp" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="hKp-BE-tB9"/>
+                            <constraint firstItem="zLC-sA-pKk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="kJU-fx-gOP"/>
+                            <constraint firstAttribute="trailing" secondItem="3aW-LX-NQr" secondAttribute="trailing" id="kUf-ip-UPz"/>
+                            <constraint firstItem="e6S-dY-2le" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="raE-07-8HT"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="actionBtn" destination="IoO-Rj-s0q" id="aQA-VH-Hro"/>
+                        <outlet property="centerMapBtn" destination="Ulu-sE-DJp" id="k3D-74-29Q"/>
+                        <outlet property="destinationCircle" destination="UCb-5t-PGS" id="wc7-OF-eEY"/>
+                        <outlet property="destinationTextField" destination="Gk9-Xc-ZCo" id="UEu-N2-a5t"/>
+                        <outlet property="mapView" destination="e6S-dY-2le" id="9UP-Gc-pK0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-130" y="-181"/>
+        </scene>
+        <!--Left Side PanelVC-->
+        <scene sceneID="bBn-b0-OLR">
+            <objects>
+                <viewController storyboardIdentifier="LeftSidePanelVC" id="f5H-W2-zlN" customClass="LeftSidePanelVC" customModule="TAXI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Re-wo-Ddb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xpy-Rb-2ek"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v7Q-WG-Otc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OcS-Yf-WFp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1i-pc-YDM">
+                                        <rect key="frame" x="21" y="25" width="67" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="8vr-eY-gcM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="K1i-pc-YDM" firstAttribute="top" secondItem="OcS-Yf-WFp" secondAttribute="top" constant="25" id="GKU-Es-EGT"/>
+                                    <constraint firstAttribute="height" constant="90" id="T3I-J9-fY6"/>
+                                    <constraint firstItem="K1i-pc-YDM" firstAttribute="leading" secondItem="OcS-Yf-WFp" secondAttribute="leading" constant="21" id="YeS-Ok-24Y"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S0R-KJ-wet">
+                                <rect key="frame" x="20" y="135" width="114" height="180"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGC-Qc-Q27">
+                                        <rect key="frame" x="0.0" y="0.0" width="114" height="45"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                        <state key="normal" title="Payment"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnF-zT-Rfz">
+                                        <rect key="frame" x="0.0" y="45" width="114" height="45"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                        <state key="normal" title="Your Trips"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9D-jT-61s">
+                                        <rect key="frame" x="0.0" y="90" width="114" height="45"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                        <state key="normal" title="Help"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5i-ay-jRa">
+                                        <rect key="frame" x="0.0" y="135" width="114" height="45"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                        <state key="normal" title="Settings"/>
+                                    </button>
+                                </subviews>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="ylY-00-hOQ"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rZ-Mg-wo2">
+                                <rect key="frame" x="20" y="672" width="179" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="u4R-I7-eKz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                <state key="normal" title="Sing Up / Login">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="singUpLoginBtnWasPressed:" destination="f5H-W2-zlN" eventType="touchUpInside" id="aZv-oP-iKZ"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="noe-VA-Zqm">
+                                <rect key="frame" x="20" y="420" width="203" height="236"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uDp-Au-XGD">
+                                        <rect key="frame" x="0.0" y="0.0" width="203" height="59.333333333333336"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ei2-Ta-g16">
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="switchWasToggied:" destination="f5H-W2-zlN" eventType="valueChanged" id="MFh-bq-arr"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PICHUP MODE ENABLED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yit-7S-yKY">
+                                                <rect key="frame" x="0.0" y="36" width="203" height="23.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample-photo" translatesAutoresizingMaskIntoConstraints="NO" id="1yp-yg-3CA" customClass="RoundImageView" customModule="TAXI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="77.666666666666686" width="75" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="8G7-o4-3kZ"/>
+                                            <constraint firstAttribute="height" constant="75" id="i6J-D2-7U3"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@google.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaV-kH-mzx">
+                                        <rect key="frame" x="0.0" y="171" width="150.66666666666666" height="23.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACCOUNT TYPE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmo-ar-GNv">
+                                        <rect key="frame" x="0.0" y="212.66666666666663" width="128.66666666666666" height="23.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="236" id="1uq-W3-wYD"/>
+                                    <constraint firstAttribute="width" constant="203" id="o3I-hS-wJt"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="S0R-KJ-wet" firstAttribute="leading" secondItem="v7Q-WG-Otc" secondAttribute="leadingMargin" id="3gI-GU-fI3"/>
+                            <constraint firstAttribute="trailing" secondItem="OcS-Yf-WFp" secondAttribute="trailing" id="ALu-bQ-lPh"/>
+                            <constraint firstItem="S0R-KJ-wet" firstAttribute="top" secondItem="OcS-Yf-WFp" secondAttribute="bottom" constant="45" id="IWH-cI-3DP"/>
+                            <constraint firstItem="noe-VA-Zqm" firstAttribute="leading" secondItem="v7Q-WG-Otc" secondAttribute="leadingMargin" id="Iyb-jQ-tba"/>
+                            <constraint firstItem="OcS-Yf-WFp" firstAttribute="top" secondItem="v7Q-WG-Otc" secondAttribute="top" id="Ryc-dz-M6n"/>
+                            <constraint firstItem="OcS-Yf-WFp" firstAttribute="leading" secondItem="v7Q-WG-Otc" secondAttribute="leading" id="fB0-aW-C23"/>
+                            <constraint firstItem="3rZ-Mg-wo2" firstAttribute="leading" secondItem="v7Q-WG-Otc" secondAttribute="leadingMargin" id="lpI-VS-MEf"/>
+                            <constraint firstItem="xpy-Rb-2ek" firstAttribute="top" secondItem="3rZ-Mg-wo2" secondAttribute="bottom" constant="19" id="mVK-vt-XVB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="noe-VA-Zqm" secondAttribute="trailing" constant="171" id="vO3-21-Wxf"/>
+                            <constraint firstItem="3rZ-Mg-wo2" firstAttribute="top" secondItem="noe-VA-Zqm" secondAttribute="bottom" constant="16" id="woD-5T-YEX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginOutBtn" destination="3rZ-Mg-wo2" id="BV6-vg-EhZ"/>
+                        <outlet property="pickupModeLbl" destination="Yit-7S-yKY" id="J47-oO-sxg"/>
+                        <outlet property="pickupModeSwitch" destination="Ei2-Ta-g16" id="KBb-8m-TuE"/>
+                        <outlet property="userAccountTypeLbl" destination="fmo-ar-GNv" id="pui-CH-fHi"/>
+                        <outlet property="userEmailLbl" destination="YaV-kH-mzx" id="Myg-r1-i6U"/>
+                        <outlet property="userImageView" destination="1yp-yg-3CA" id="5mN-At-HAo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZPT-UJ-Kxc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="543" y="-182"/>
+        </scene>
+        <!--LoginVC-->
+        <scene sceneID="K5V-Xq-vTS">
+            <objects>
+                <viewController storyboardIdentifier="LoginVC" id="7nk-rg-YQF" customClass="LoginVC" customModule="TAXI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gov-4Z-TFS"/>
+                        <viewControllerLayoutGuide type="bottom" id="UCg-Jt-jU1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="etJ-ac-kAL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="windingRoad" translatesAutoresizingMaskIntoConstraints="NO" id="mSJ-uP-Yko">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n5G-pd-AzW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Pai-M9-yiT">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwz-gf-TKx">
+                                            <rect key="frame" x="23" y="20" width="32" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="UGH-hu-cW8"/>
+                                            </constraints>
+                                            <state key="normal" image="cancelBtn"/>
+                                            <connections>
+                                                <action selector="cancelBtnWasPressed:" destination="7nk-rg-YQF" eventType="touchUpInside" id="eFd-S8-70O"/>
+                                            </connections>
+                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zee-R4-kF6">
+                                            <rect key="frame" x="10" y="45" width="395" height="352.33333333333331"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ibG-bs-LUU">
+                                                    <rect key="frame" x="68.333333333333343" y="0.0" width="258.33333333333326" height="57.333333333333336"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUPER" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="81.333333333333329" translatesAutoresizingMaskIntoConstraints="NO" id="IBF-VT-nZP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="154" height="57.333333333333336"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                                            <color key="textColor" red="1" green="0.084414909770000005" blue="0.1097138179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAXI" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hl1-ll-wWx">
+                                                            <rect key="frame" x="154" y="0.0" width="104.33333333333331" height="57.333333333333336"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up or login to start requesting rides with SUPER TAXI: the easiest way to get a lift anywhere!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYa-2s-bcl">
+                                                    <rect key="frame" x="-10" y="77.333333333333329" width="0.0" height="74.999999999999986"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="75" id="ZNX-c7-inm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                                    <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oDr-CI-sUZ">
+                                                    <rect key="frame" x="0.0" y="172.33333333333334" width="395" height="41"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="8rX-W5-eKw"/>
+                                                    </constraints>
+                                                    <segments>
+                                                        <segment title="Passenger"/>
+                                                        <segment title="Driver"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3E2-GZ-Cy1" customClass="RoundedCornerTextFiled" customModule="TAXI" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="232.33333333333331" width="395" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="KWe-q3-yI7"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="send"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Me9-FR-JfO" customClass="RoundedCornerTextFiled" customModule="TAXI" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="302.33333333333331" width="395" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="Hxg-Mb-YqG"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="oDr-CI-sUZ" firstAttribute="leading" secondItem="Zee-R4-kF6" secondAttribute="leading" id="1gI-H5-eot"/>
+                                                <constraint firstItem="Me9-FR-JfO" firstAttribute="leading" secondItem="Zee-R4-kF6" secondAttribute="leading" id="52f-Kd-0Ye"/>
+                                                <constraint firstAttribute="trailing" secondItem="Me9-FR-JfO" secondAttribute="trailing" id="7gg-PA-KaC"/>
+                                                <constraint firstAttribute="trailing" secondItem="oDr-CI-sUZ" secondAttribute="trailing" id="ZIN-de-7UA"/>
+                                                <constraint firstAttribute="trailing" secondItem="3E2-GZ-Cy1" secondAttribute="trailing" id="c1T-aN-xf3"/>
+                                                <constraint firstItem="3E2-GZ-Cy1" firstAttribute="leading" secondItem="Zee-R4-kF6" secondAttribute="leading" id="ydu-Af-6am"/>
+                                            </constraints>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9IT-jt-XWL" customClass="RoundedShadowButton" customModule="TAXI" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="675" width="374" height="51"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="51" id="awh-lm-pXf"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                            <state key="normal" title="Sing Up / Login">
+                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="authBtnWasPressed:" destination="7nk-rg-YQF" eventType="touchUpInside" id="lT4-jN-Mer"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gwz-gf-TKx" firstAttribute="leading" secondItem="Pai-M9-yiT" secondAttribute="leading" constant="23" id="6Xq-Ak-6Aj"/>
+                                        <constraint firstAttribute="bottom" secondItem="9IT-jt-XWL" secondAttribute="bottom" constant="10" id="7vl-Hi-NOQ"/>
+                                        <constraint firstItem="gwz-gf-TKx" firstAttribute="top" secondItem="Pai-M9-yiT" secondAttribute="top" constant="20" id="MrM-pU-phm"/>
+                                        <constraint firstItem="Zee-R4-kF6" firstAttribute="leading" secondItem="Pai-M9-yiT" secondAttribute="leading" constant="10" id="ZOp-Bi-ojw"/>
+                                        <constraint firstAttribute="trailing" secondItem="9IT-jt-XWL" secondAttribute="trailing" constant="20" id="tiK-TO-4pp"/>
+                                        <constraint firstItem="Zee-R4-kF6" firstAttribute="top" secondItem="gwz-gf-TKx" secondAttribute="bottom" constant="5" id="xtM-mw-Spw"/>
+                                        <constraint firstAttribute="trailing" secondItem="Zee-R4-kF6" secondAttribute="trailing" constant="9" id="yZP-jK-32P"/>
+                                        <constraint firstItem="9IT-jt-XWL" firstAttribute="leading" secondItem="Pai-M9-yiT" secondAttribute="leading" constant="20" id="zXH-3F-aI0"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n5G-pd-AzW" firstAttribute="top" secondItem="etJ-ac-kAL" secondAttribute="top" id="2qo-uU-SIa"/>
+                            <constraint firstItem="mSJ-uP-Yko" firstAttribute="leading" secondItem="etJ-ac-kAL" secondAttribute="leading" id="8Oi-uZ-Tk9"/>
+                            <constraint firstItem="UCg-Jt-jU1" firstAttribute="top" secondItem="mSJ-uP-Yko" secondAttribute="bottom" id="ISi-A2-lMO"/>
+                            <constraint firstItem="mSJ-uP-Yko" firstAttribute="top" secondItem="etJ-ac-kAL" secondAttribute="top" id="Wtw-YS-mF1"/>
+                            <constraint firstAttribute="trailing" secondItem="n5G-pd-AzW" secondAttribute="trailing" id="hQZ-S4-7fr"/>
+                            <constraint firstItem="UCg-Jt-jU1" firstAttribute="top" secondItem="n5G-pd-AzW" secondAttribute="bottom" id="mA0-tg-qAC"/>
+                            <constraint firstItem="n5G-pd-AzW" firstAttribute="leading" secondItem="etJ-ac-kAL" secondAttribute="leading" id="o4U-0F-fE3"/>
+                            <constraint firstAttribute="trailing" secondItem="mSJ-uP-Yko" secondAttribute="trailing" id="yQt-p6-WbC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authBtn" destination="9IT-jt-XWL" id="6TK-Tk-UL8"/>
+                        <outlet property="emailFiled" destination="3E2-GZ-Cy1" id="eJf-EH-ekh"/>
+                        <outlet property="passwordFiled" destination="Me9-FR-JfO" id="mre-PF-uhX"/>
+                        <outlet property="segmentedControl" destination="oDr-CI-sUZ" id="m6g-EG-GK7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GYa-aD-NZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1166.6666666666667" y="-181.79347826086959"/>
+        </scene>
+        <!--PickupVC-->
+        <scene sceneID="3EN-Wv-hnd">
+            <objects>
+                <viewController storyboardIdentifier="PickupVC" id="thv-2R-YY8" customClass="PickupVC" customModule="TAXI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qO9-AR-9f8"/>
+                        <viewControllerLayoutGuide type="bottom" id="hVq-lZ-Epv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7SB-nw-fIi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fx-R0-lJ0">
+                                <rect key="frame" x="23.000000000000004" y="25" width="35.333333333333343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="qVJ-2i-MOp"/>
+                                </constraints>
+                                <state key="normal" image="cancelBtn"/>
+                                <connections>
+                                    <action selector="cancelBtnWasPressed:" destination="7nk-rg-YQF" eventType="touchUpInside" id="eN2-6X-F2g"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="rvM-qn-LJU">
+                                <rect key="frame" x="78.333333333333343" y="40" width="258.33333333333326" height="57.333333333333343"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUPER" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="81.333333333333329" translatesAutoresizingMaskIntoConstraints="NO" id="x5x-Gs-XEa">
+                                        <rect key="frame" x="0.0" y="0.0" width="154" height="57.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                        <color key="textColor" red="1" green="0.084414909770000005" blue="0.1097138179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAXI" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oau-D2-Psy">
+                                        <rect key="frame" x="154" y="0.0" width="104.33333333333331" height="57.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35I-7y-bMF" customClass="RoundedShadowButton" customModule="TAXI" customModuleProvider="target">
+                                <rect key="frame" x="20" y="677" width="374" height="51"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="xtQ-6Y-Dej"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                <state key="normal" title="Accept Trip">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to pick up this passanger?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1V-ag-NCs">
+                                <rect key="frame" x="23" y="618" width="371" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="Jt6-4d-lIs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b7k-GG-3Sl">
+                                <rect key="frame" x="58" y="218" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Wob-Fm-orV"/>
+                                    <constraint firstAttribute="height" constant="300" id="ont-Ss-HYS"/>
+                                </constraints>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="b7k-GG-3Sl" firstAttribute="centerY" secondItem="7SB-nw-fIi" secondAttribute="centerY" id="16T-5C-vzV"/>
+                            <constraint firstItem="35I-7y-bMF" firstAttribute="top" secondItem="V1V-ag-NCs" secondAttribute="bottom" constant="18" id="58T-Tm-sGK"/>
+                            <constraint firstItem="V1V-ag-NCs" firstAttribute="trailing" secondItem="7SB-nw-fIi" secondAttribute="trailingMargin" id="EWM-x5-KoJ"/>
+                            <constraint firstItem="b7k-GG-3Sl" firstAttribute="centerX" secondItem="7SB-nw-fIi" secondAttribute="centerX" constant="1" id="IU7-J4-cCo"/>
+                            <constraint firstItem="8fx-R0-lJ0" firstAttribute="leading" secondItem="7SB-nw-fIi" secondAttribute="leadingMargin" constant="3" id="Kfp-yb-6xv"/>
+                            <constraint firstItem="V1V-ag-NCs" firstAttribute="leading" secondItem="7SB-nw-fIi" secondAttribute="leadingMargin" constant="3" id="M9J-qd-hem"/>
+                            <constraint firstItem="rvM-qn-LJU" firstAttribute="top" secondItem="qO9-AR-9f8" secondAttribute="bottom" constant="20" id="RWO-Sz-jmT"/>
+                            <constraint firstItem="rvM-qn-LJU" firstAttribute="centerX" secondItem="7SB-nw-fIi" secondAttribute="centerX" id="UAn-KO-1vM"/>
+                            <constraint firstItem="8fx-R0-lJ0" firstAttribute="top" secondItem="qO9-AR-9f8" secondAttribute="bottom" constant="5" id="ZMe-kV-Xfe"/>
+                            <constraint firstItem="35I-7y-bMF" firstAttribute="leading" secondItem="7SB-nw-fIi" secondAttribute="leadingMargin" id="cX3-1Y-ogB"/>
+                            <constraint firstItem="rvM-qn-LJU" firstAttribute="leading" secondItem="8fx-R0-lJ0" secondAttribute="trailing" constant="20" id="fiO-tL-b4y"/>
+                            <constraint firstItem="hVq-lZ-Epv" firstAttribute="top" secondItem="35I-7y-bMF" secondAttribute="bottom" constant="8" id="ft9-P6-nvu"/>
+                            <constraint firstItem="35I-7y-bMF" firstAttribute="trailing" secondItem="7SB-nw-fIi" secondAttribute="trailingMargin" id="zM4-XB-vOM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lUL-cj-69n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1850.7246376811595" y="-183.42391304347828"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="button:Ulu-sE-DJp:image" width="62" height="62">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
+GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
+c1dOU0NvbG9ygAKADRIgwAAAgAOAC1h7NjIsIDYyfdIVChYYWk5TLm9iamVjdHOhF4AEgArSFQoaHaIb
+HIAFgAaACRAA0iAKISJfEBROU1RJRkZSZXByZXNlbnRhdGlvboAHgAhPEUSuTU0AKgAAPBgAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB
+AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAAAAAgAAAAIAAAACAAAA
+AgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIBAQEBAQEBAQEBAQEBAQEBAQEB
+AQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQEBAQEBAQEBAQEBAQAAAAIAAAACAAAAAgAAAAIAAAADAAAA
+AwAAAAMAAAADAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAAAwAAAAMAAAADAAAAAwAAAAIAAAACAAAA
+AgAAAAIBAQEBAQEBAQEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQEBAQEBAQEBAQEBAQAAAAIAAAACAAAAAgAAAAMAAAADAAAA
+BAAAAAQAAAAEAAAABQEBAQUBAQEFAQEBBgEBAQYBAQEGAQEBBgEBAQUBAQEFAAAABQAAAAQAAAAEAAAA
+BAAAAAMAAAADAAAAAgAAAAIAAAACAQEBAQEBAQEBAQEBAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQEBAQEBAQAAAAIAAAACAAAAAwAAAAMAAAAEAAAA
+BAAAAAUBAQEFAQEBBgEBAQcBAQEHAQEBCAEBAQgBAQEIAQEBCAEBAQgBAQEIAQEBCAEBAQgBAQEHAQEB
+BwEBAQYBAQEFAAAABQAAAAQAAAAEAAAAAwAAAAMAAAACAAAAAgEBAQEBAQEBAQEBAQEBAQEAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQEBAQEBAQAAAAIAAAACAAAAAgAAAAMAAAAEAAAA
+BAEBAQUBAQEGAQEBBwEBAQgBAQEJAgICCQICAgoCAgILAgICCwICAgsCAgIMAgICDAICAgsCAgILAgIC
+CwICAgoCAgIJAQEBCQEBAQgBAQEHAQEBBgEBAQUAAAAEAAAABAAAAAMAAAACAAAAAgAAAAIBAQEBAQEB
+AQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQEBAQEBAQEBAQEBAQEAAAACAAAAAgAAAAMAAAAEAAAA
+BAEBAQUBAQEGAQEBBwEBAQgCAgIKAQEBCwICAgwCAgINAgICDQMDAw4DAwMPAgICDwICAg8CAgIPAgIC
+DwMDAw8DAwMOAgICDQICAg0CAgIMAQEBCwICAgoBAQEIAQEBBwEBAQYBAQEFAAAABAAAAAQAAAADAAAA
+AgAAAAIBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQEBAQEBAQEBAAAAAgAAAAIAAAADAAAA
+BAAAAAUBAQEGAQEBBwEBAQkBAQEKAQEBCwEBAQ0CAgIOAgICEAICAhECAgISAgICEwICAhMCAgIUAgIC
+FQICAhUCAgIUAgICEwICAhMCAgISAgICEQICAhACAgIOAQEBDQEBAQsBAQEKAQEBCQEBAQcBAQEGAAAA
+BQAAAAQAAAADAAAAAgAAAAIBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQEBAAAAAgAAAAIAAAADAAAA
+AwAAAAQBAQEFAQEBBwEBAQgBAQEKAQEBCwEBAQ0CAgIPAgICEQICAhMCAgIVAwMDFgMDAxcDAwMYAwMD
+GQMDAxkDAwMaAwMDGgMDAxkDAwMZAwMDGAMDAxcDAwMWAgICFQICAhMCAgIRAgICDwEBAQ0BAQELAQEB
+CgEBAQgBAQEHAQEBBQAAAAQAAAADAAAAAwAAAAIAAAACAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQEBAQEBAQEBAQAAAAIAAAACAAAA
+AwAAAAQAAAAFAQEBBgEBAQcAAAAJAAAACwEBAQ0CAgIPAgICEgICAhQDAwMWAwMDGAMDAxoDAwMcAwMD
+IAMDAyQCAgIoAQEBKgEBASwBAQEsAQEBKgICAigDAwMkAwMDIAMDAxwDAwMaAwMDGAMDAxYCAgIUAgIC
+EgICAg8BAQENAAAACwAAAAkBAQEHAQEBBgAAAAUAAAAEAAAAAwAAAAIAAAACAQEBAQEBAQEBAQEBAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQEBAAAA
+AgAAAAMAAAAEAAAABQEBAQYAAAAIAAAACgEBAQwCAgIOAgICEQICAhQCAgIXAgICGQMDAxwDAwMjAQEB
+KwEBATIAAAA1AAAANwAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADcAAAA1AQEBMgEBASsDAwMjAwMD
+HAICAhkCAgIXAgICFAICAhECAgIOAQEBDAAAAAoAAAAIAQEBBgAAAAUAAAAEAAAAAwAAAAIBAQEBAQEB
+AQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQEBAQEBAQEB
+AQAAAAIAAAADAAAABAAAAAUBAQEGAAAACAAAAAoBAQENAgICDwICAhICAgIVAwMDGAMDAxsDAwMkAQEB
+MAAAADYAAAA4AAAAOAAAADgAAAA5AAAAOQAAADkAAAA5AAAAOQAAADkAAAA5AAAAOQAAADgAAAA4AAAA
+OAAAADYBAQEwAwMDJAMDAxsDAwMYAgICFQICAhICAgIPAQEBDQAAAAoAAAAIAQEBBgAAAAUAAAAEAAAA
+AwAAAAIBAQEBAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEB
+AQEBAQEAAAACAAAAAgAAAAMAAAAFAQEBBgAAAAgAAAAKAQEBDQICAhACAgITAgICFwICAhoCAgIhAQEB
+LgAAADcAAAA4AAAAOAAAADkAAAA6AAAAOwAAADsAAAA8AAAAPAAAAD0AAAA9AAAAPAAAADwAAAA7AAAA
+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
+AgEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEB
+AQEBAQEBAQEBAAAAAgAAAAMAAAAEAAAABQEBAQYAAAAIAAAACgEBAQwCAgIOAgICEQICAhQCAgIXAgIC
+GQMDAxwDAwMjAQEBKwEBATIAAAA1AAAANwAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADcAAAA1AQEB
+MgEBASsDAwMjAwMDHAICAhkCAgIXAgICFAICAhECAgIOAQEBDAAAAAoAAAAIAQEBBgAAAAUAAAAEAAAA
+AwAAAAIBAQEBAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAABAQEBAQEBAQEBAQEAAAACAAAAAgAAAAMAAAAEAAAABQEBAQYBAQEHAAAACQAAAAsBAQENAgIC
+DwICAhICAgIUAwMDFgMDAxgDAwMaAwMDHAMDAyADAwMkAgICKAEBASoBAQEsAQEBLAEBASoCAgIoAwMD
+JAMDAyADAwMcAwMDGgMDAxgDAwMWAgICFAICAhICAgIPAQEBDQAAAAsAAAAJAQEBBwEBAQYAAAAFAAAA
+BAAAAAMAAAACAAAAAgEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQEBAQEAAAACAAAAAgAAAAMAAAADAAAABAEBAQUBAQEHAQEB
+CAEBAQoBAQELAQEBDQICAg8CAgIRAgICEwICAhUDAwMWAwMDFwMDAxgDAwMZAwMDGQMDAxoDAwMaAwMD
+GQMDAxkDAwMYAwMDFwMDAxYCAgIVAgICEwICAhECAgIPAQEBDQEBAQsBAQEKAQEBCAEBAQcBAQEFAAAA
+BAAAAAMAAAADAAAAAgAAAAIBAQEBAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQEBAQEBAQEBAAAAAgAAAAIAAAADAAAA
+BAAAAAUBAQEGAQEBBwEBAQkBAQEKAQEBCwEBAQ0CAgIOAgICEAICAhECAgISAgICEwICAhMCAgIUAgIC
+FQICAhUCAgIUAgICEwICAhMCAgISAgICEQICAhACAgIOAQEBDQEBAQsBAQEKAQEBCQEBAQcBAQEGAAAA
+BQAAAAQAAAADAAAAAgAAAAIBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQEBAQEBAQEBAAAA
+AgAAAAIAAAADAAAABAAAAAQBAQEFAQEBBgEBAQcBAQEIAgICCgEBAQsCAgIMAgICDQICAg0DAwMOAwMD
+DwICAg8CAgIPAgICDwICAg8DAwMPAwMDDgICAg0CAgINAgICDAEBAQsCAgIKAQEBCAEBAQcBAQEGAQEB
+BQAAAAQAAAAEAAAAAwAAAAIAAAACAQEBAQEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEB
+AQEBAQEBAQEBAAAAAgAAAAIAAAACAAAAAwAAAAQAAAAEAQEBBQEBAQYBAQEHAQEBCAEBAQkCAgIJAgIC
+CgICAgsCAgILAgICCwICAgwCAgIMAgICCwICAgsCAgILAgICCgICAgkBAQEJAQEBCAEBAQcBAQEGAQEB
+BQAAAAQAAAAEAAAAAwAAAAIAAAACAAAAAgEBAQEBAQEBAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAQEBAQEBAQEBAQEBAQEBAQAAAAIAAAACAAAAAwAAAAMAAAAEAAAABAAAAAUBAQEFAQEB
+BgEBAQcBAQEHAQEBCAEBAQgBAQEIAQEBCAEBAQgBAQEIAQEBCAEBAQgBAQEHAQEBBwEBAQYBAQEFAAAA
+BQAAAAQAAAAEAAAAAwAAAAMAAAACAAAAAgEBAQEBAQEBAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQEBAQEBAQEBAQEBAQEAAAACAAAAAgAAAAIAAAADAAAA
+AwAAAAQAAAAEAAAABAAAAAUBAQEFAQEBBQEBAQYBAQEGAQEBBgEBAQYBAQEFAQEBBQAAAAUAAAAEAAAA
+BAAAAAQAAAADAAAAAwAAAAIAAAACAAAAAgEBAQEBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQEBAQEBAQEBAQEBAQEBAQEBAAAA
+AgAAAAIAAAACAAAAAgAAAAMAAAADAAAAAwAAAAMAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAADAAAA
+AwAAAAMAAAADAAAAAgAAAAIAAAACAAAAAgEBAQEBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEB
+AQEBAQEBAQEBAQEBAQEBAQEBAQEBAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAA
+AgAAAAIAAAACAAAAAgAAAAIBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB
+AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAA4BAAADAAAAAQA+AAABAQADAAAAAQA+AAABAgADAAAABAAAPMYBAwADAAAAAQABAAAB
+BgADAAAAAQACAAABEQAEAAAAAQAAAAgBEgADAAAAAQABAAABFQADAAAAAQAEAAABFgADAAAAAQA+AAAB
+FwAEAAAAAQAAPBABHAADAAAAAQABAAABUgADAAAAAQABAAABUwADAAAABAAAPM6HcwAHAAAH2AAAPNYA
+AAAAAAgACAAIAAgAAQABAAEAAQAAB9hhcHBsAiAAAG1udHJSR0IgWFlaIAfZAAIAGQALABoAC2Fjc3BB
+UFBMAAAAAGFwcGwAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtYXBwbAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC2Rlc2MAAAEIAAAAb2RzY20AAAF4AAAFnGNwcnQA
+AAcUAAAAOHd0cHQAAAdMAAAAFHJYWVoAAAdgAAAAFGdYWVoAAAd0AAAAFGJYWVoAAAeIAAAAFHJUUkMA
+AAecAAAADmNoYWQAAAesAAAALGJUUkMAAAecAAAADmdUUkMAAAecAAAADmRlc2MAAAAAAAAAFEdlbmVy
+aWMgUkdCIFByb2ZpbGUAAAAAAAAAAAAAABRHZW5lcmljIFJHQiBQcm9maWxlAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtbHVjAAAAAAAAAB8AAAAMc2tTSwAAACgA
+AAGEZGFESwAAAC4AAAGsY2FFUwAAACQAAAHadmlWTgAAACQAAAH+cHRCUgAAACYAAAIidWtVQQAAACoA
+AAJIZnJGVQAAACgAAAJyaHVIVQAAACgAAAKaemhUVwAAABYAAALCbmJOTwAAACYAAALYY3NDWgAAACIA
+AAL+aGVJTAAAAB4AAAMgaXRJVAAAACgAAAM+cm9STwAAACQAAANmZGVERQAAACwAAAOKa29LUgAAABYA
+AAO2c3ZTRQAAACYAAALYemhDTgAAABYAAAPMamFKUAAAABoAAAPiZWxHUgAAACIAAAP8cHRQTwAAACYA
+AAQebmxOTAAAACgAAAREZXNFUwAAACYAAAQedGhUSAAAACQAAARsdHJUUgAAACIAAASQZmlGSQAAACgA
+AASyaHJIUgAAACgAAATacGxQTAAAACwAAAUCcnVSVQAAACIAAAUuYXJFRwAAACYAAAVQZW5VUwAAACYA
+AAV2AFYBYQBlAG8AYgBlAGMAbgD9ACAAUgBHAEIAIABwAHIAbwBmAGkAbABHAGUAbgBlAHIAZQBsACAA
+UgBHAEIALQBiAGUAcwBrAHIAaQB2AGUAbABzAGUAUABlAHIAZgBpAGwAIABSAEcAQgAgAGcAZQBuAOgA
+cgBpAGMAQx6lAHUAIABoAOwAbgBoACAAUgBHAEIAIABDAGgAdQBuAGcAUABlAHIAZgBpAGwAIABSAEcA
+QgAgAEcAZQBuAOkAcgBpAGMAbwQXBDAEMwQwBDsETAQ9BDgEOQAgBD8EQAQ+BEQEMAQ5BDsAIABSAEcA
+QgBQAHIAbwBmAGkAbAAgAGcA6QBuAOkAcgBpAHEAdQBlACAAUgBWAEIAwQBsAHQAYQBsAOEAbgBvAHMA
+IABSAEcAQgAgAHAAcgBvAGYAaQBskBp1KAAgAFIARwBCACCCcl9pY8+P8ABHAGUAbgBlAHIAaQBzAGsA
+IABSAEcAQgAtAHAAcgBvAGYAaQBsAE8AYgBlAGMAbgD9ACAAUgBHAEIAIABwAHIAbwBmAGkAbAXkBegF
+1QXkBdkF3AAgAFIARwBCACAF2wXcBdwF2QBQAHIAbwBmAGkAbABvACAAUgBHAEIAIABnAGUAbgBlAHIA
+aQBjAG8AUAByAG8AZgBpAGwAIABSAEcAQgAgAGcAZQBuAGUAcgBpAGMAQQBsAGwAZwBlAG0AZQBpAG4A
+ZQBzACAAUgBHAEIALQBQAHIAbwBmAGkAbMd8vBgAIABSAEcAQgAg1QS4XNMMx3xmbpAaACAAUgBHAEIA
+IGPPj/Blh072TgCCLAAgAFIARwBCACAw1zDtMNUwoTCkMOsDkwO1A70DuQO6A8wAIAPAA8EDvwPGA68D
+uwAgAFIARwBCAFAAZQByAGYAaQBsACAAUgBHAEIAIABnAGUAbgDpAHIAaQBjAG8AQQBsAGcAZQBtAGUA
+ZQBuACAAUgBHAEIALQBwAHIAbwBmAGkAZQBsDkIOGw4jDkQOHw4lDkwAIABSAEcAQgAgDhcOMQ5IDicO
+RA4bAEcAZQBuAGUAbAAgAFIARwBCACAAUAByAG8AZgBpAGwAaQBZAGwAZQBpAG4AZQBuACAAUgBHAEIA
+LQBwAHIAbwBmAGkAaQBsAGkARwBlAG4AZQByAGkBDQBrAGkAIABSAEcAQgAgAHAAcgBvAGYAaQBsAFUA
+bgBpAHcAZQByAHMAYQBsAG4AeQAgAHAAcgBvAGYAaQBsACAAUgBHAEIEHgQxBEkEOAQ5ACAEPwRABD4E
+RAQ4BDsETAAgAFIARwBCBkUGRAZBACAGKgY5BjEGSgZBACAAUgBHAEIAIAYnBkQGOQYnBkUARwBlAG4A
+ZQByAGkAYwAgAFIARwBCACAAUAByAG8AZgBpAGwAZXRleHQAAAAAQ29weXJpZ2h0IDIwMDcgQXBwbGUg
+SW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC4AWFlaIAAAAAAAAPNSAAEAAAABFs9YWVogAAAAAAAAdE0A
+AD3uAAAD0FhZWiAAAAAAAABadQAArHMAABc0WFlaIAAAAAAAACgaAAAVnwAAuDZjdXJ2AAAAAAAAAAEB
+zQAAc2YzMgAAAAAAAQxCAAAF3v//8yYAAAeSAAD9kf//+6L///2jAAAD3AAAwGzSJSYnKFokY2xhc3Nu
+YW1lWCRjbGFzc2VzXxAQTlNCaXRtYXBJbWFnZVJlcKMnKSpaTlNJbWFnZVJlcFhOU09iamVjdNIlJiwt
+V05TQXJyYXmiLCrSJSYvMF5OU011dGFibGVBcnJheaMvLCrTMjMKNDU2V05TV2hpdGVcTlNDb2xvclNw
+YWNlRDAgMAAQA4AM0iUmODlXTlNDb2xvcqI4KtIlJjs8V05TSW1hZ2WiOypfEA9OU0tleWVkQXJjaGl2
+ZXLRP0BUcm9vdIABAAgAEQAaACMALQAyADcARgBMAFcAXgBlAHIAeQCBAIMAhQCKAIwAjgCXAJwApwCp
+AKsArQCyALUAtwC5ALsAvQDCANkA2wDdRY9FlEWfRahFu0W/RcpF00XYReBF40XoRfdF+0YCRgpGF0Yc
+Rh5GIEYlRi1GMEY1Rj1GQEZSRlVGWgAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAAEZcA
+</mutableData>
+        </image>
+        <image name="cancelBtn" width="32" height="31"/>
+        <image name="centerMapBtn" width="62" height="62"/>
+        <image name="menuSliderBtn" width="30" height="24"/>
+        <image name="sample-photo" width="711" height="711"/>
+        <image name="windingRoad" width="2992" height="2000"/>
+    </resources>
 </document>
